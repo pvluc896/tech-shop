@@ -1,0 +1,6 @@
+<?php
+
+// Compatibility entry point: allow `php artisan ...` from the repository root.
+chdir(__DIR__.'/backend');
+
+require __DIR__.'/backend/artisan';

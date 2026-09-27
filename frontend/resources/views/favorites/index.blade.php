@@ -1,0 +1,7 @@
+@extends('layouts.shop')
+
+@section('title', 'Sản phẩm yêu thích | Luc Tech Shop')
+
+@section('content')
+<div class="container py-5"><div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4"><div><div class="text-danger text-uppercase small fw-bold mb-2">Danh sách của bạn</div><h1 class="h2 fw-bold mb-1">Sản phẩm yêu thích</h1><p class="text-secondary mb-0">Lưu lại sản phẩm để tiện xem và mua sau.</p></div><a class="btn btn-outline-primary rounded-pill px-4" href="{{ route('products.index') }}">Khám phá sản phẩm</a></div>@if($products->isNotEmpty())<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">@foreach($products as $product)<div class="col"><x-home-product-card :product="$product" /></div>@endforeach</div><div class="mt-4">{{ $products->links() }}</div>@else<div class="card border-0 shadow-sm"><div class="card-body text-center py-5"><div class="empty-favorite-icon mx-auto mb-3"><svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.9-8.6a5.5 5.5 0 0 0-.1-7.8Z"/></svg></div><h2 class="h4 fw-bold">Chưa có sản phẩm yêu thích</h2><p class="text-secondary mb-4">Nhấn biểu tượng trái tim trên sản phẩm để lưu lại tại đây.</p><a class="btn btn-primary px-4" href="{{ route('products.index') }}">Xem sản phẩm</a></div></div>@endif</div>
+@endsection
